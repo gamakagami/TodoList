@@ -1,8 +1,8 @@
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Signup from './pages/Signup';
-import SignIn from './pages/Signin';
-import Dashboard from './components/Dashboard';
+import Navbar from './components/Navbar.jsx';
+import Home from './pages/Home.jsx';
+import Signup from './pages/Signup.jsx';
+import SignIn from './pages/Signin.jsx';
+import Dashboard from './components/Dashboard.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext'; // Import the AuthProvider
 
