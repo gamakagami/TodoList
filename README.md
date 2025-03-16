@@ -1,5 +1,5 @@
-# React Firebase Application
-
+# TodoList React Firebase Application
+#Gabriel Anderson - 2702256315
 This README provides step-by-step instructions to set up and run this React application with Firebase integration.
 
 ## Prerequisites
@@ -14,8 +14,8 @@ Before you begin, ensure you have the following installed on your machine:
 
 1. **Clone or Download the Project**
    ```bash
-   git clone [https://github.com/gamakagami/TodoList]
-   cd [TodoList]
+   git clone https://github.com/gamakagami/TodoList
+   cd TodoList
    ```
 
 2. **Install Dependencies**
