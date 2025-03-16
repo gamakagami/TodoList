@@ -1,5 +1,5 @@
 # TodoList React Firebase Application
-#Gabriel Anderson - 2702256315
+# Gabriel Anderson - 2702256315
 This README provides step-by-step instructions to set up and run this React application with Firebase integration.
 
 ## Prerequisites
