@@ -3,8 +3,20 @@ import WelcomeSection from "../components/WelcomeSection";
 import QuoteSection from "../components/QuoteSection";
 import FeaturesSection from "../components/FeaturesSection";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Home() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  // Redirect authenticated users to Dashboard
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard"); // Redirect to dashboard if logged in
+    }
+  }, [user, navigate]);
   return (
     <div className="relative bg-[#3d3e6e] min-h-screen text-white flex flex-col lg:flex-row items-center px-6 overflow-hidden">
       <FloatingBalls />

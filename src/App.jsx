@@ -1,25 +1,27 @@
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import { BrowserRouter as Router, Routes,Route} from 'react-router-dom'
-import Signup from './pages/Signup'
-import SignIn from './pages/SignIn'
-import Dashboard from './components/Dashboard'
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Signup from './pages/Signup';
+import SignIn from './pages/SignIn';
+import Dashboard from './components/Dashboard';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext'; // Import the AuthProvider
 
 function App() {
-
   return (
-    <div className='h-[100vh]'>
+    <AuthProvider>
       <Router>
         <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/signin' element={<SignIn />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-        </Routes>
+        <div className='h-[100vh]'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/signin' element={<SignIn />} />
+            <Route path='/dashboard' element={<Dashboard />} />
+          </Routes>
+        </div>
       </Router>
-    </div>
-  )
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;
