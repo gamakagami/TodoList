@@ -33,15 +33,13 @@ Before you begin, ensure you have the following installed on your machine:
 
 1. **Clone or Download the Project**
    ```bash
-   git clone [repository-url]
-   cd [project-directory]
+   git clone [https://github.com/gamakagami/TodoList]
+   cd [TodoList]
    ```
 
 2. **Install Dependencies**
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
 3. **Configure Firebase**
@@ -61,76 +59,12 @@ Before you begin, ensure you have the following installed on your machine:
 
 1. **Start the Development Server**
    ```bash
-   npm start
-   # or
-   yarn start
+   npm run dev
    ```
 
 2. **Access the Application**
    - Open your browser and navigate to `http://localhost:3000`
    - The application should now be running with Firebase connectivity
-
-## Deployment
-
-### Deploy to Firebase Hosting
-
-1. **Install Firebase CLI**
-   ```bash
-   npm install -g firebase-tools
-   ```
-
-2. **Login to Firebase**
-   ```bash
-   firebase login
-   ```
-
-3. **Initialize Firebase Hosting**
-   ```bash
-   firebase init hosting
-   ```
-   - Select your project
-   - Set the build directory as `build`
-   - Configure as a single-page app: Yes
-   - Set up automatic builds: No (unless needed)
-
-4. **Build the Production Version**
-   ```bash
-   npm run build
-   # or
-   yarn build
-   ```
-
-5. **Deploy to Firebase**
-   ```bash
-   firebase deploy --only hosting
-   ```
-
-### Deploy to Other Platforms
-
-- For other hosting providers, follow their specific deployment instructions using the build folder generated with `npm run build`
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Firebase Configuration Errors**
-   - Ensure all Firebase environment variables are correctly set
-   - Check that services you're using (Auth, Firestore, etc.) are enabled in Firebase Console
-
-2. **Build Errors**
-   - Update dependencies: `npm update` or `yarn upgrade`
-   - Clear npm cache: `npm cache clean --force`
-   - Delete `node_modules` and reinstall dependencies
-
-3. **Firebase Permissions**
-   - Verify your Firestore and Storage rules are correctly configured
-   - Test rules in the Firebase Console Rules Playground
-
-### Still Having Issues?
-
-- Check the browser console for specific error messages
-- Review Firebase documentation: [firebase.google.com/docs](https://firebase.google.com/docs)
-- Refer to React documentation: [reactjs.org/docs](https://reactjs.org/docs/getting-started.html)
 
 ## Additional Resources
 
