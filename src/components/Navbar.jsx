@@ -13,10 +13,10 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [profilePic, setProfilePic] = useState(null);
 
-  // Fallback profile picture (simple SVG data URL)
+  // Fallback profile picture
   const FALLBACK_PROFILE_PIC = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='22' fill='%23718096'/%3E%3Cpath d='M25,85 Q50,65 75,85 L75,100 L25,100 Z' fill='%23718096'/%3E%3C/svg%3E";
 
-  // Fetch user's profile picture when component mounts or user changes
+  // Fetch user's profile picture
   useEffect(() => {
     const fetchProfilePic = async () => {
       if (isLoggedIn && user) {
@@ -36,7 +36,6 @@ const Navbar = () => {
     fetchProfilePic();
   }, [isLoggedIn, user]);
 
-  // Don't show login/logout options while authentication is still loading
   if (loading) {
     return (
       <nav className="h-[10vh] bg-[#161B33] py-4 px-6 flex justify-between items-center relative">
@@ -82,20 +81,28 @@ const Navbar = () => {
 
             {/* Profile Modal */}
             <ProfileModal 
-  isOpen={isModalOpen} 
-  onClose={() => setIsModalOpen(false)}
-  onProfileUpdate={(newProfilePic) => setProfilePic(newProfilePic)} 
-/>
+              isOpen={isModalOpen} 
+              onClose={() => setIsModalOpen(false)}
+              onProfileUpdate={(newProfilePic) => setProfilePic(newProfilePic)} 
+            />
           </>
         ) : (
           <>
             <Button variant="text" onClick={() => navigate("/signin")}>Sign In</Button>
-            <Button variant="primary" onClick={() => navigate("/signup")}>Sign Up</Button>
+            <Button 
+              variant="primary" 
+              onClick={() => {
+                setIsModalOpen(false); // Close the modal
+                navigate("/signup"); // Navigate to sign-up page
+              }}
+            >
+              Sign Up
+            </Button>
           </>
         )}
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

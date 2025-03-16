@@ -17,7 +17,6 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Listen for Firebase auth state changes
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       try {
         if (currentUser) {
@@ -42,22 +41,20 @@ export function AuthProvider({ children }) {
     return () => unsubscribe(); // Cleanup on unmount
   }, []);
 
-  // Maintain these methods for backward compatibility
-  const login = (userToken, userData) => {
-    localStorage.setItem("authToken", userToken);
-    setToken(userToken);
-    setUser(userData);
+  const login = async (token, user) => {
+    // Update isLoggedIn state and store user data
+    setUser(user);
+    setToken(token);
+    localStorage.setItem("authToken", token);
   };
 
   const logout = () => {
     // This should just trigger Firebase signOut
-    // The actual state cleanup happens in onAuthStateChanged
     auth.signOut().catch(error => {
       console.error("Error signing out:", error);
     });
   };
 
-  // Expose both user and token based auth status for consistency
   const isLoggedIn = !!user && !!token;
 
   return (

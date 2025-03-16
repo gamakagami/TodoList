@@ -5,10 +5,10 @@ import { useAuth } from "../context/AuthContext"; // Auth Context
 import { auth } from "../firebase"; // Import Firebase auth
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
-export default function AuthForm({ type }) {
+export default function AuthForm({ type, onCloseModal }) {
   const isSignIn = type === "signin";
   const navigate = useNavigate();
-  const { login } = useAuth(); // Get login function from context
+  const { login } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,19 +22,22 @@ export default function AuthForm({ type }) {
   
     try {
       if (isSignIn) {
-        // Sign in with email and password
+        // Sign in logic
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const token = await userCredential.user.getIdToken();
-        
-        // Important: Pass both token AND user data to login function
-        login(token, userCredential.user);
-        
+        login(token, userCredential.user); // Updates state in AuthContext
         navigate("/dashboard");
       } else {
-        // Sign up with email and password
-        await createUserWithEmailAndPassword(auth, email, password);
-        navigate("/signin");
+        // Sign up logic (DO NOT log the user in immediately)
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      
+        // Sign the user out immediately
+        await auth.signOut();
+      
+        if (onCloseModal) onCloseModal(); // Close modal if applicable
+        navigate("/signin", { state: { fromSignUp: true } }); // Navigate to sign-in page
       }
+      
     } catch (err) {
       console.error("Authentication error:", err);
       setError(err.message);
@@ -42,7 +45,6 @@ export default function AuthForm({ type }) {
       setLoading(false);
     }
   };
-  
 
   return (
     <motion.div
