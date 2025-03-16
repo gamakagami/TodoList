@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
-import SignIn from './pages/SignIn';
+import SignIn from './pages/Signin';
 import Dashboard from './components/Dashboard';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext'; // Import the AuthProvider
