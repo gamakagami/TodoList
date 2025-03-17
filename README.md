@@ -56,9 +56,12 @@ cd TodoList
      ```
 
 4. **Stop the Docker Container**
-   - docker ps to show the running containers and stop it with the following
+   - Show the running containers 
      ```bash
      docker ps
+     ```
+   - Stop and remove the running containers 
+     ```bash
      docker stop <CONTAINER_ID>
      docker rm <CONTAINER_ID>
      ```
