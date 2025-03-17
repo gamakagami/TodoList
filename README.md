@@ -40,61 +40,13 @@ cd TodoList
 
 ### Running with Docker
 
-1. **Build the Docker Image**
-   ```bash
-   docker build -t my-todolist .
-   ```
-
-2. **Run the Application in a Docker Container**
-   ```bash
-   docker run -p 5173:5173 my-todolist
-   ```
-   - The application will be available at `http://localhost:5173`
-
-3. **Test the Docker Setup**
-   - Stop any running container (if necessary):
-     ```bash
-     docker stop my-todolist
-     docker rm my-todolist
-     ```
-   - Remove the Docker image (optional for testing fresh builds):
-     ```bash
-     docker rmi my-todolist
-     ```
-   - Re-clone and rebuild to ensure a fresh test:
-     ```bash
-     git clone https://github.com/gamakagami/TodoList
-     cd TodoList
-     docker build -t my-todolist .
-     docker run -p 5173:5173 my-todolist
-     ```
-   - Open `http://localhost:5173` in your browser to verify it runs correctly.
-
-### Uploading to Docker Hub
-
-1. **Log in to Docker Hub**
-   ```bash
-   docker login
-   ```
-   - Enter your **Docker Hub** credentials.
-
-2. **Tag the Docker Image**
-   ```bash
-   docker tag my-todolist gamakagami/my-todolist
-   ```
-
-3. **Push the Image to Docker Hub**
-   ```bash
-   docker push gamakagami/my-todolist
-   ```
-
-4. **Verify the Upload**
-   - Visit **[Docker Hub Repository](https://hub.docker.com/repository/docker/gamakagami/my-todolist)** to check if the image appears.
-
-5. **Share the Docker Image**
-   - Others can pull and run it using:
+1. **Pull the Docker Image**
      ```bash
      docker pull gamakagami/my-todolist
+     ```
+
+2. **Run the Container**
+     ```bash
      docker run -p 5173:5173 gamakagami/my-todolist
      ```
 
