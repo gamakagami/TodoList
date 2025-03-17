@@ -50,6 +50,18 @@ cd TodoList
      docker run -p 5173:5173 gamakagami/my-todolist
      ```
 
+3. **Access the Application**
+     ```bash
+     http://localhost:5173/
+     ```
+
+4. **Stop the Docker Container**
+   - docker ps to show the running containers and stop it with the following
+     ```bash
+     docker ps
+     docker stop <CONTAINER_ID>
+     docker rm <CONTAINER_ID>
+     ```
 ## Additional Resources
 
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
