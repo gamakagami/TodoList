@@ -39,7 +39,7 @@ const Navbar = () => {
   if (loading) {
     return (
       <nav className="h-[10vh] bg-[#161B33] py-4 px-6 flex justify-between items-center relative">
-        <h1 className="text-2xl font-bold text-[#1E4DB7]">Gabriel Anderson</h1>
+        <h1 className="text-2xl font-bold text-[#1E4DB7]">Todolist</h1>
         <div className="flex items-center space-x-4">
           <Button variant="text" onClick={() => navigate("/")}>
             Home
@@ -51,7 +51,7 @@ const Navbar = () => {
 
   return (
     <nav className="h-[10vh] bg-[#161B33] py-4 px-6 flex justify-between items-center relative">
-      <h1 className="text-2xl font-bold text-[#1E4DB7]">Gabriel Anderson</h1>
+      <h1 className="text-2xl font-bold text-[#1E4DB7]">Todolist</h1>
 
       <div className="flex items-center space-x-4">
         <Button variant="text" onClick={() => navigate(isLoggedIn ? "/dashboard" : "/")}>
